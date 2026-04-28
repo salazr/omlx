@@ -26,15 +26,19 @@ from omlx.model_registry import get_registry, ModelOwnershipError
 # Metal Guard initialization (optional — silently skipped if not installed)
 # Patches MLX at C level to prevent kernel panics on known-failing models.
 # Must be imported before any MLX operations.
+from omlx._metal_guard import _METAL_GUARD_AVAILABLE as _MG_AVAILABLE
 try:
     import metal_guard
     # Apply C-level defensive patches (prepare_count_underflow, etc.)
     metal_guard.install_upstream_defensive_patches()
     # Log system audit at startup for debugging
     metal_guard.log_system_audit_at_startup()
-    _METAL_GUARD_AVAILABLE = True
+    _MG_AVAILABLE = True
 except ImportError:
-    _METAL_GUARD_AVAILABLE = False
+    _MG_AVAILABLE = False
+
+# Re-export for direct access
+_METAL_GUARD_AVAILABLE = _MG_AVAILABLE
 
 # Backward compatibility alias
 CacheStats = PagedCacheStats

@@ -42,6 +42,7 @@ from .exceptions import (
 from .model_discovery import DiscoveredModel, discover_models, format_size
 from .engine_core import get_mlx_executor
 from .scheduler import SchedulerConfig
+from ._metal_guard import _METAL_GUARD_AVAILABLE
 
 logger = logging.getLogger(__name__)
 
