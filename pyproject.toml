@@ -86,6 +86,11 @@ audio = [
     "mlx-audio[tts,stt,sts] @ git+https://github.com/Blaizzy/mlx-audio@51753266e0a4f766fd5e6fbc46652224efc23981",
     "python-multipart>=0.0.5",
 ]
+metal_guard = [
+    # Apple kernel panic mitigation (IOGPUMemory.cpp prepare_count_underflow)
+    # https://github.com/Harperbot/metal-guard
+    "metal-guard @ git+https://github.com/Harperbot/metal-guard@main",
+]
 dev = [
     "pytest>=7.0.0",
     "pytest-asyncio>=0.21.0",

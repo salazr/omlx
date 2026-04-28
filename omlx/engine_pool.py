@@ -591,6 +591,11 @@ class EnginePool:
         entry.is_loading = True
         entry.abort_loading = False
         try:
+            # Metal Guard: warn if this is a known panic model
+            if _METAL_GUARD_AVAILABLE:
+                import metal_guard
+                metal_guard.warn_if_known_panic_model(model_id)
+
             effective_type = entry.engine_type
             if force_lm and effective_type == "vlm":
                 effective_type = "batched"
