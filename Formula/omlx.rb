@@ -5,7 +5,7 @@ class Omlx < Formula
   sha256 "475f5fc4f0047904437d0c0d1a96254c12062a01dc1549a8459898734cc321b0"
   license "Apache-2.0"
 
-  head "https://github.com/jundot/omlx.git", branch: "main"
+  head "https://github.com/salazr/omlx.git", branch: "feat/metal-guard-integration"
 
   option "with-grammar", "Install xgrammar for structured output (requires torch, ~2GB)"
 
